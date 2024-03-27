@@ -15,8 +15,9 @@ const newBookController = (service: BookServiceType): BookControllerType => {
       const pageSize = req.query.pageSize
         ? parseInt(req.query.pageSize as string)
         : 10;
+      const searchText = req.query.search ? req.query.search : "";
 
-      const response = await service.List(page, pageSize);
+      const response = await service.List(page, pageSize, String(searchText));
 
       CustomResponseWithPagination(res, response);
     } catch (error) {

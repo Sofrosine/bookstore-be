@@ -3,9 +3,14 @@ import { Book } from "../entity/book";
 import { BookRepositoryType } from "./types";
 
 const newBookRepository = (pool: Pool): BookRepositoryType => {
-  const List = async (limit: number, offset: number): Promise<Book[]> => {
-    const query = "SELECT * FROM books LIMIT $1 OFFSET $2";
-    const values = [limit, offset];
+  const List = async (
+    limit: number,
+    offset: number,
+    searchText: string
+  ): Promise<Book[]> => {
+    let query = "SELECT * FROM books WHERE title ILIKE '%'||$1||'%' LIMIT $2 OFFSET $3";
+    const values: string[] = [searchText ?? "", String(limit), String(offset)];
+
     const result: QueryResult = await pool.query(query, values);
     return result.rows;
   };

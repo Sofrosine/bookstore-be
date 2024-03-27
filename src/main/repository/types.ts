@@ -11,7 +11,7 @@ export interface UserRepositoryType {
 }
 
 export interface BookRepositoryType {
-  List: (limit: number, offset: number) => Promise<Book[]>;
+  List: (limit: number, offset: number, searchText: string) => Promise<Book[]>;
   Count: () => Promise<number>;
   FindById: (id: string) => Promise<Book>;
   Create: (book: Book) => Promise<Book>;

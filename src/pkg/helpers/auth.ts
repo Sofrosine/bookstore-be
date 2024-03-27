@@ -33,7 +33,7 @@ export const AuthenticateToken = (
     next(); // Move to the next middleware or route handler
   } catch (error) {
     return CustomResponse(res, {
-      code: 403,
+      code: 401,
       message: "Authentication failed: Invalid token",
       data: null,
     });

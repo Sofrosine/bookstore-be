@@ -91,7 +91,7 @@ const newAuthService = (
         token,
         data: userData,
         message: "User login successfully",
-        code: 201,
+        code: 200,
       };
     } catch (error) {
       throw new Error(`Error post users: ${error.message}`);

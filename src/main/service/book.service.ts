@@ -11,19 +11,20 @@ const newBookService = (
 ): BookServiceType => {
   const List = async (
     page: number,
-    pageSize: number
+    pageSize: number,
+    searchText?: string
   ): Promise<ResponseServiceType<Book[]>> => {
     try {
       const offset = (page - 1) * pageSize;
       const limit = pageSize;
-      const books = await bookRepository.List(limit, offset);
+      const books = await bookRepository.List(limit, offset, searchText);
       const counts = await bookRepository.Count();
       const totalPages = Math.ceil(counts / pageSize);
 
       return {
         data: books,
         message: "Books loaded successfully",
-        code: 201,
+        code: 200,
         pagination: {
           page,
           pageSize,

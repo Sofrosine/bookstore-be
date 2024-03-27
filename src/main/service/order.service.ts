@@ -30,7 +30,7 @@ const newOrderService = (
       return {
         data: orders,
         message: "Orders loaded successfully",
-        code: 201,
+        code: 200,
         pagination: {
           page,
           pageSize,
@@ -101,7 +101,7 @@ const newOrderService = (
       return {
         data: null,
         message: "Order deleted successfully",
-        code: 201,
+        code: 200,
       };
     } catch (error) {
       throw new Error(`Error creating order: ${error.message}`);

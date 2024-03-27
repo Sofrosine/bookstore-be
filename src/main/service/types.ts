@@ -19,7 +19,8 @@ export interface OrderServiceType {
 export interface BookServiceType {
   List: (
     page: number,
-    pageSize: number
+    pageSize: number,
+    searchText?: string
   ) => Promise<ResponseServiceType<Book[]>>;
   Create: (bookDto: BookDtoType) => Promise<ResponseServiceType<Book>>;
 }
