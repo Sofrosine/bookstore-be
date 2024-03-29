@@ -4,7 +4,7 @@ import { AuthenticateToken } from "src/pkg/helpers/auth";
 
 const bookRouter = (app: Express, bookController: BookControllerType) => {
   app.get("/books", AuthenticateToken, bookController.List);
-  app.post("/books", AuthenticateToken, bookController.Create);
+  app.post("/books", bookController.Create);
 };
 
 export default bookRouter;

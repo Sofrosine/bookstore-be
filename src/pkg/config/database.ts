@@ -1,5 +1,11 @@
 import { Pool } from "pg";
-import { DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_DATABASE } from "src/pkg/config";
+import {
+  DB_HOST,
+  DB_PORT,
+  DB_USER,
+  DB_PASS,
+  DB_DATABASE,
+} from "src/pkg/config";
 
 export default () => {
   const pool = new Pool({
@@ -8,6 +14,7 @@ export default () => {
     database: DB_DATABASE,
     password: DB_PASS,
     port: Number(DB_PORT),
+    ssl: true,
   });
 
   pool.on("connect", () => {
