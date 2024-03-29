@@ -8,5 +8,4 @@ pids
 node_modules
 *.tsbuildinfo
 .env
-build
 .vercel
